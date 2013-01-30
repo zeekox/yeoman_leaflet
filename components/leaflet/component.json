@@ -1,0 +1,8 @@
+{
+  "name": "leaflet",
+  "version": "0.4.5",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Leaflet/Leaflet.git"
+  }
+}
