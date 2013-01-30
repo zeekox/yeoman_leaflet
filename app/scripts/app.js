@@ -8,7 +8,8 @@ function(L) {
 	
 	var map = L.map('map').setView(center, 13);
 
-	var marker = L.marker(center).addTo(map);
+	var latlngs = [new L.LatLng(47.363511,7.35706), new L.LatLng(47.363511,7.35806), new L.LatLng(47.373511,7.35806) ]
+	var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
 	var landscapeTile = 'http://{s}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png';
 
