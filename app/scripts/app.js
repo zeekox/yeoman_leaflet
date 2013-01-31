@@ -1,8 +1,9 @@
 define([
-  'leaflet'
+  'leaflet',
+  'jquery'
 ],
 
-function(L) {
+function(L, $) {
 
 	var center = [47.363511,7.35706];
 	
@@ -21,5 +22,19 @@ function(L) {
 	L.tileLayer(landscapeTile, {
 		attribution: '&copy; OpenStreetMap contributors'
 	}).addTo(map);
+
+
+$.getJSON('json/ch1086.002.json', function(data) {
+  var items = [];
+ 
+  $.each(data, function(lat, lon) {
+    items.push('<li id="' + lat + '">' + lon + '</li>');
+  });
+ 
+  $('<ul/>', {
+    'class': 'my-new-list',
+    html: items.join('')
+  }).appendTo('body');
+});
 	
 });
