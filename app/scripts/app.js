@@ -7,20 +7,33 @@ function(L, $) {
 
 	var map = L.map('map');
 
+	var ids = ['002','004','005','006','008','009','014','034','071','121','124'];
 
-	var latlngs = [];
+	var nbrOfCoordinates = 0;
 
-	$.getJSON('json/ch1086.002.json', function(data) {
+
+	$.each(ids, function(i, id){
+		$.getJSON('json/ch1086.'+id+'.json', function(data) {
 		
-		$.each(data, function(i, latlng) {
-			latlngs.push(new L.LatLng(latlng.lat, latlng.lng));
+			var latlngs = [];
+		
+			$.each(data, function(i, latlng) {
+				nbrOfCoordinates++;
+				latlngs.push(new L.LatLng(latlng.lat, latlng.lng));
+			});
+
+			map.setView(latlngs[0], 13);
+		
+			L.polyline(latlngs, {color: 'red'}).addTo(map);
+		
+			$('<div> ' + nbrOfCoordinates + '</div>').insertAfter('#map');
+
 		});
 
-		map.setView(latlngs[0], 13);
-	
 	});
 
-	var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+
 
 	var landscapeTile = 'http://{s}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png';
 
