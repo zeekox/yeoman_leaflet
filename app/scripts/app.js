@@ -5,11 +5,21 @@ define([
 
 function(L, $) {
 
-	var center = [47.363511,7.35706];
-	
-	var map = L.map('map').setView(center, 13);
+	var map = L.map('map');
 
-	var latlngs = [new L.LatLng(47.363511,7.35706), new L.LatLng(47.363511,7.35806), new L.LatLng(47.373511,7.35806) ]
+
+	var latlngs = [];
+
+	$.getJSON('json/ch1086.002.json', function(data) {
+		
+		$.each(data, function(i, latlng) {
+			latlngs.push(new L.LatLng(latlng.lat, latlng.lng));
+		});
+
+		map.setView(latlngs[0], 13);
+	
+	});
+
 	var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
 	var landscapeTile = 'http://{s}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png';
@@ -22,19 +32,5 @@ function(L, $) {
 	L.tileLayer(landscapeTile, {
 		attribution: '&copy; OpenStreetMap contributors'
 	}).addTo(map);
-
-
-$.getJSON('json/ch1086.002.json', function(data) {
-  var items = [];
- 
-  $.each(data, function(lat, lon) {
-    items.push('<li id="' + lat + '">' + lon + '</li>');
-  });
- 
-  $('<ul/>', {
-    'class': 'my-new-list',
-    html: items.join('')
-  }).appendTo('body');
-});
 	
 });

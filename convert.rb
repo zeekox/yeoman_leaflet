@@ -8,8 +8,8 @@ ARGV.each do|a|
 
 	File.open(a, "r"){ |file| 
    file.readlines.each_with_index do |line, idx|
-      line.gsub(/lat="(.*)" lon="(.*)"/) do
-      	coord = {lat: $1.to_f, lon: $2.to_f}
+      line.gsub(/lat="(.*)" lng="(.*)"/) do
+      	coord = {lat: $1.to_f, lng: $2.to_f}
       	json_array << coord
 			end
    end
