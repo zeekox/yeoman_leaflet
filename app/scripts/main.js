@@ -6,7 +6,7 @@ require.config({
   },
 
   paths: {
-    jquery: 'vendor/jquery.min',
+    jquery: '../components/jquery/jquery.min',
     leaflet: '../components/leaflet/dist/leaflet'
   }
 });

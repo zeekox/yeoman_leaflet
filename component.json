@@ -3,12 +3,13 @@
   "name": "",
   "version": "0.0.0",
   "dependencies": {
-    "leaflet" : "~0.5.1",
-    "angular" : "~1.0.4",
-    "es5-shim" : "~2.0.5",
-    "json3" : "~3.2.4",
+    "leaflet": "~0.5.1",
+    "angular": "~1.0.4",
+    "es5-shim": "~2.0.5",
+    "json3": "~3.2.4",
     "require": "~2.1.4",
-    "underscore": null
+    "underscore": "~1.4.4",
+    "jquery": "~1.9.1"
   },
   "devDependencies": {}
 }
