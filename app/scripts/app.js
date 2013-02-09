@@ -26,7 +26,7 @@ function CreateCtrl($scope, $location, Project) {
     Project.save($scope.project, function(project) {
       $location.path('/edit/' + project._id.$oid);
     });
-  }
+  };
 }
 
 
@@ -40,7 +40,7 @@ function EditCtrl($scope, $location, $routeParams, Project) {
 
   $scope.isClean = function() {
     return angular.equals(self.original, $scope.project);
-  }
+  };
 
   $scope.destroy = function() {
     self.original.destroy(function() {
@@ -78,7 +78,7 @@ angular.module('mongolab', ['ngResource']).
     });
 
 angular.element(document).ready(function() {
-         angular.bootstrap(document, ['mongolab','project']);
+         angular.bootstrap(document, ['project']);
        });
 
 
