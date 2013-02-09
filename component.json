@@ -5,6 +5,7 @@
   "dependencies": {
     "leaflet": "~0.5.1",
     "angular": "~1.0.4",
+    "angular-resource": "~1.0.4",
     "es5-shim": "~2.0.5",
     "json3": "~3.2.4",
     "require": "~2.1.4",
