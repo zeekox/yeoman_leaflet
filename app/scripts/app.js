@@ -19,7 +19,6 @@ function ListCtrl($scope, Project) {
   $scope.projects = Project.query();
 }
 
-window.ListCtrl = ListCtrl;
 
 
 function CreateCtrl($scope, $location, Project) {
@@ -29,7 +28,6 @@ function CreateCtrl($scope, $location, Project) {
     });
   }
 }
-window.CreateCtrl = CreateCtrl;
 
 
 function EditCtrl($scope, $location, $routeParams, Project) {
@@ -56,7 +54,6 @@ function EditCtrl($scope, $location, $routeParams, Project) {
     });
   };
 }
-window.EditCtrl = EditCtrl;
 
 // This is a module for cloud persistance in mongolab - https://mongolab.com
 angular.module('mongolab', ['ngResource']).
