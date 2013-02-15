@@ -11,8 +11,8 @@ require.config({
 				exports: 'angular',
 				deps: ['angular']
 			}
-			
-			},
+
+		},
 
 		paths: {
 			jquery: '../components/jquery/jquery.min',
@@ -25,5 +25,8 @@ require.config({
 
 require(['app'], function(app) {
 
+	angular.element(document).ready(function() {
+		angular.bootstrap(document, [app.mainModule]);
+	});
 
 });
